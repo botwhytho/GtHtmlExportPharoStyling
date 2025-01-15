@@ -4,8 +4,8 @@
 ```st
 [ EpMonitor current
 	disableDuring: [ Metacello new
-			repository: 'github://';
-			baseline: 'github://botwhytho/GtHtmlExportPharoStyling:main/src';
+			repository: 'github://botwhytho/GtHtmlExportPharoStyling:main/src';
+			baseline: 'GtHtmlExportPharoStyling';
 			load ] ] asAsyncFuture
 	await: AsyncFutureExecutionConfiguration default lowPriority
 ```
