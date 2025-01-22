@@ -4,8 +4,21 @@ Class {
 	#instVars : [
 		'coder'
 	],
+	#classInstVars : [
+		'styleMethodAnnotations'
+	],
 	#category : #GtHtmlExportPharoStyling
 }
+
+{ #category : #styling }
+GtHtmlExportPharoStyler class >> disableMethodAnnotationStyling [
+	styleMethodAnnotations := false
+]
+
+{ #category : #styling }
+GtHtmlExportPharoStyler class >> enableMethodAnnotationStyling [
+	styleMethodAnnotations := true
+]
 
 { #category : #'as yet unclassified' }
 GtHtmlExportPharoStyler class >> forMethod: aMethod [
@@ -19,6 +32,17 @@ GtHtmlExportPharoStyler class >> forSource: aString [
 	^ self new
 		coder: (GtPharoSnippetCoder forSource: aString);
 		style
+]
+
+{ #category : #initialization }
+GtHtmlExportPharoStyler class >> initialize [
+	super initialize.
+	self disableMethodAnnotationStyling
+]
+
+{ #category : #styling }
+GtHtmlExportPharoStyler class >> shouldStyleMethodAnnotations [
+	^ styleMethodAnnotations
 ]
 
 { #category : #accessing }
